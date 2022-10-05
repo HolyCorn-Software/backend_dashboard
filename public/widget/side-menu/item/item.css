@@ -1,0 +1,42 @@
+/* 
+    Copyright 2022 HolyCorn Software
+    The CAYOFED People System Project
+    The item widget is a part of the side-menu widget, and represents anything that can be added to the menu
+ */
+
+.hc-cayofedpeople-backend-dashboard-menu-item>.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.hc-cayofedpeople-backend-dashboard-menu-item>.container>.content {
+    padding-left: 2.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding-top: 0.25em;
+}
+
+
+/** The logic of expanding and contracting the content */
+.hc-cayofedpeople-backend-dashboard-menu-item>.container>.content {
+    max-height: 0em;
+    opacity: 0%;
+    transition: 0.25s 0.125s, 0.125s 0.25s padding-bottom;
+}
+
+.hc-cayofedpeople-backend-dashboard-menu-item.isShowing:not(.collapsed)>.container>.content {
+    max-height: 100vh;
+    opacity: 1;
+    transition: 0.5s 0.125s, 0.25s 0.125s padding-bottom;
+    padding-bottom: 1em;
+}
+
+
+
+/** The logic of collapsing the menu item. Note that collapsing is different from contracting */
+.hc-cayofedpeople-backend-dashboard-menu-item >.container >.content{
+    opacity:0;
+    transition:0.25s 0.125s;
+}

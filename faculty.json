@@ -1,0 +1,5 @@
+{
+    "name": "backend_dashboard",
+    "label": "Backend Dashoard",
+    "init": "exec.mjs"
+}

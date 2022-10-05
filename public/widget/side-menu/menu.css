@@ -1,0 +1,12 @@
+/**
+Copyright 2022 HolyCorn Software
+The CAYOFED People System Project
+This widget (side-menu) is part of the backend-dashboard and is responsible for the main menu at the side
+*/
+
+
+.hc-cayofedpeople-backend-dashboard-menu >.container >.items{
+    display:flex;
+    flex-direction:column;
+    gap:0em;
+}

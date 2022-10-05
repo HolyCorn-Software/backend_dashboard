@@ -1,0 +1,87 @@
+/**
+Copyright 2022 HolyCorn Software
+The CAYOFED People System Project
+The backend-dashboard widget
+The item widget. 
+This header widget represents the top-row of a single item on the side menu
+*/
+
+.hc-cayofedpeople-backend-dashboard-menu-item-header >.container{
+
+    display:flex;
+    gap:1em;
+    padding-right:0.75em;
+    align-items:center;
+    transition:0.25s 0.125s;
+}
+
+.hc-cayofedpeople-backend-dashboard-menu-item-header:not(.isGroupt) >.container{
+    padding:0.5em;
+    border-radius:0.35em;
+
+}
+
+.hc-cayofedpeople-backend-dashboard-menu-item-header >.container >.label{
+    cursor:default;
+}
+
+.hc-cayofedpeople-backend-dashboard-menu-item-header >.container.isGroup >.drop-down-arrow{
+    flex-grow:1;
+    cursor:pointer;
+}
+
+
+/** The arrow, and the logic to rotate arrow when the group has been clicked */
+.hc-cayofedpeople-backend-dashboard-menu-item-header.isGroup >.container >.drop-down-arrow{
+    width:2em;
+    height:2em;
+    background-image:url('res/arrow-down-black.svg');
+    background-repeat:no-repeat;
+    background-position:right;
+    transition:0.25s 0.125s;
+}
+
+.hc-cayofedpeople-backend-dashboard-menu-item-header.isGroup.isShowing >.container >.drop-down-arrow{
+    transform:rotate(-180deg);
+}
+
+
+.hc-cayofedpeople-backend-dashboard-menu-item-header >.container >.icon{
+    background-image:var(--img);
+    min-width:2em;
+    background-size:contain;
+    aspect-ratio:1/1;
+    background-repeat:no-repeat;
+
+}
+
+.hc-cayofedpeople-backend-dashboard-menu-item-header >.container >.icon svg path{
+    fill: white !important;
+}
+
+
+/** The logic for highlighting options when the mouse hovers over them */
+.hc-cayofedpeople-backend-dashboard-menu-item-header:hover:not(.isGroup):not(.isShowing):not(.highlighted) >.container{
+    background-color:rgb(9, 126, 189);
+
+    background-color:rgb(250 235 191 / 93%);
+}
+
+
+.hc-cayofedpeople-backend-dashboard-menu-item-header:not(.isGroup).highlighted >.container{
+    background-color: transparent;
+    border:1px solid black;
+    transition:0.25s 0.125s;
+}
+
+
+
+/** The logic for collapsing the header */
+.hc-cayofedpeople-backend-dashboard-menu-item-header >.container >:not(.icon){
+    transition:0.75s 0.125s, 0.5s 0.125s opacity;
+}
+.hc-cayofedpeople-backend-dashboard-menu-item-header.collapsed >.container >:not(.icon){
+    opacity:0;
+
+    transition:0.5s 0.125s;
+}

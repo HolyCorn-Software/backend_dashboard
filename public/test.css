@@ -1,0 +1,17 @@
+/* 
+    Copyright 2022 HolyCorn Software
+    The CAYOFED People System Project
+    A simple page for testing the dashboard
+ */
+
+html, body {
+    margin:0px;
+    position:relative;
+    width:100vw;
+    height:100vh;
+}
+
+.hc-cayofedpeople-backend-dashboard {
+    width:100vw;
+    height:100vh;
+}
