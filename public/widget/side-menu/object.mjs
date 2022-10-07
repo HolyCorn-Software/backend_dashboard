@@ -7,8 +7,8 @@
  */
 
 import { MenuItem } from "./item/item.mjs";
-import { hc } from "/$/system/static/lib/hc/lib/index.js";
-import { Widget } from "/$/system/static/lib/hc/lib/index.js";
+import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
+import { Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
 
 
 export default class DashboardObject extends Widget {

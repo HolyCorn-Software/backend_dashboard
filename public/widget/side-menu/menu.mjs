@@ -6,12 +6,9 @@
  */
 
 import { convert } from "./converter.mjs";
-import { MenuItemHeader } from "./item/header.mjs";
 import { MenuItem } from "./item/item.mjs";
 import DashboardObject from "./object.mjs";
-import { ActionButton } from "/$/system/static/lib/hc/action-button/button.js";
-import { hc } from "/$/system/static/lib/hc/lib/index.js";
-import { Widget } from "/$/system/static/lib/hc/lib/widget.js";
+import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
 
 
 export class SideMenu extends DashboardObject {

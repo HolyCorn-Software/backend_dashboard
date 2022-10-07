@@ -11,9 +11,9 @@
 import { BackendDashboard } from "../../widget.mjs";
 import DashboardObject from "../object.mjs";
 import { MenuItemHeader } from "./header.mjs";
-import { Spinner } from "/$/system/static/lib/hc/infinite-spinner/spinner.js";
-import { hc } from "/$/system/static/lib/hc/lib/index.js";
-import { Widget } from "/$/system/static/lib/hc/lib/widget.js";
+import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
+import { Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
+import Spinner from "/$/system/static/html-hc/widgets/infinite-spinner/widget.mjs";
 
 
 export class MenuItem extends DashboardObject {

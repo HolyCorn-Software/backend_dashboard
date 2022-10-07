@@ -8,8 +8,8 @@
 
 import { loadDashboard } from "./logic/loader.mjs";
 import { SideMenu } from "./side-menu/menu.mjs";
-import { hc } from "/$/system/static/lib/hc/lib/index.js";
-import { Widget } from "/$/system/static/lib/hc/lib/widget.js";
+import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
+import { Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
 
 
 
