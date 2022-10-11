@@ -99,11 +99,11 @@ export class MenuItem extends DashboardObject {
 
 
         //this.viewHTML stores the view that has been selected either by clicking the header or by clicking a sub-item
-        /** @type {import("/$/system/static/lib/hc/lib/widget.js").ExtendedHTML} */ this.viewHTML
+        /** @type {import("/$/system/static/html-hc/lib/widget/widget.mjs").ExtendedHTML} */ this.viewHTML
 
 
         //this.itemWidgets is an array that directly manipulates the sub-items contained by this item
-        /** @type {import('/$/system/static/lib/hc/lib/widget/pluralWidgetProperty.js').PluralWidgetArray<MenuItem>} */ this.itemWidgets
+        /** @type {import('/$/system/static/html-hc/lib/widget/pluralWidgetProperty.mjs').PluralWidgetArray<MenuItem>} */ this.itemWidgets
         this.pluralWidgetProperty({
             selector: '.hc-cayofedpeople-backend-dashboard-menu-item',
             parentSelector: '.container >.content',
@@ -150,7 +150,7 @@ export class MenuItem extends DashboardObject {
 
 
 
-        /** @type {import("/$/system/static/lib/hc/lib/widget.js").ExtendedHTML} */ this.viewHTML
+        /** @type {import("/$/system/static/html-hc/lib/widget/widget.mjs").ExtendedHTML} */ this.viewHTML
         Reflect.defineProperty(this, 'viewHTML', {
             get: () => this.header.viewHTML,
             set: (html) => this.header.viewHTML = html,

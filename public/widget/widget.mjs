@@ -89,7 +89,7 @@ export class BackendDashboard extends Widget {
             }
         });
 
-        /** @type {import("/$/system/static/lib/hc/lib/widget.js").ExtendedHTML} */ this.mainContent
+        /** @type {import("/$/system/static/html-hc/lib/widget/widget.mjs").ExtendedHTML} */ this.mainContent
         this.widgetProperty({
             selector: '*',
             parentSelector: '.container .right-section >.bottom-right',

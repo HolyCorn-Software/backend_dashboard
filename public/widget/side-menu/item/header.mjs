@@ -88,7 +88,7 @@ export class MenuItemHeader extends Widget {
             if (!(module.default) instanceof Widget) {
                 throw new Error(
                     `The view (${view}) did not export a default class which extends Widget.\nIn general it something like this is expected\n
-                    import {Widget} from '/$/system/static/lib/hc/lib/widget.js'
+                    import {Widget} from '/$/system/static/html-hc/lib/widget/widget.mjs'
                     
                     export default SomeClass extends Widget{
                         constructor(){
@@ -113,7 +113,7 @@ export class MenuItemHeader extends Widget {
         return this[view_symbol]
     }
     /**
-     * @returns {import("/$/system/static/lib/hc/lib/widget.js").ExtendedHTML}
+     * @returns {import("/$/system/static/html-hc/lib/widget/widget.mjs").ExtendedHTML}
      */
     get viewHTML() {
         return this[view_html_symbol]
