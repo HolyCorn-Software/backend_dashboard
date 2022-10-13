@@ -1,1 +1,1 @@
-Made changes to adapt to the new placement of the html-hc library in the soul system
+Improved autocomplete, and interoperability with new projects, by specifying entries that are to be added to every new project's jsconfig.json file.

@@ -1,0 +1,9 @@
+{
+    "compilerOpions": {
+        "paths": {
+            "/$/backend_dashboard/static/*": [
+                "faculty/backend_dashboard/public/*"
+            ]
+        }
+    }
+}
