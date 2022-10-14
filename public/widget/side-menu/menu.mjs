@@ -135,7 +135,11 @@ export class SideMenu extends DashboardObject {
      * @param {string} name 
      */
     async directSelect(name) {
-        (await this.findItem(name)).header.dispatchEvent(new CustomEvent('select'))
+        const item = await this.findItem(name)
+        if(!item){
+            throw new Error(`Cannot select ${name} on the dashboard, because it could not be found.`)
+        }
+        item.header.dispatchEvent(new CustomEvent('select'))
     }
 
     /**

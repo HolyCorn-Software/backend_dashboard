@@ -1,1 +1,3 @@
-Improved autocomplete, and interoperability with new projects, by specifying entries that are to be added to every new project's jsconfig.json file.
+Improved logging
+Deprecated the named export BackendDashboard from the frontend
+Improved error handling at the frontend widget

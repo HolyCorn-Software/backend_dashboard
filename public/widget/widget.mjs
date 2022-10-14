@@ -13,7 +13,7 @@ import { Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
 
 
 
-export class BackendDashboard extends Widget {
+export default class BackendDashboard extends Widget {
 
 
     constructor() {
@@ -81,7 +81,7 @@ export class BackendDashboard extends Widget {
                 set: (widget) => {
                     widget.addEventListener('change', () => {
                         this.mainContent = widget.currentView;
-                        this.topActions = widget.topActions||[]
+                        this.topActions = widget.topActions || []
                     })
                     return widget.html
                 },
@@ -106,11 +106,11 @@ export class BackendDashboard extends Widget {
 
     }
 
-    async loadFromServer({name, params}){
+    async loadFromServer({ name, params }) {
         this.loadBlock();
-        try{
-            await loadDashboard({name, params}, this)
-        }catch(e){
+        try {
+            await loadDashboard({ name, params }, this)
+        } catch (e) {
             this.loadUnblock();
             throw e;
         }
@@ -153,3 +153,16 @@ export class BackendDashboard extends Widget {
         }
     }
 }
+
+/**
+ * @deprecated
+ * It is deprecated to import {BackendDashboard} from '../bla/bla/bla'. Rather import BackendDashboard from '../somewhere/ 
+ */
+class Deprecated extends BackendDashboard {
+    constructor() {
+        console.warn(`It is deprecated to import {BackendDashboard} from '../bla/bla/bla'. Rather import BackendDashboard from '../somewhere/ `)
+        super(...arguments)
+    }
+}
+
+export { Deprecated as BackendDashboard }

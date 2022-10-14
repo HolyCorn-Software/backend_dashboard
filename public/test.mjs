@@ -4,7 +4,7 @@
  * 
  */
 
-import { BackendDashboard } from "./widget/widget.mjs";
+import  BackendDashboard  from "./widget/widget.mjs";
 import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
 
 hc.importModuleCSS(import.meta.url);

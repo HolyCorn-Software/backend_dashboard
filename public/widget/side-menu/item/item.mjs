@@ -8,7 +8,7 @@
  * There's no way from distinguishing actions from groups, except that groups are items that contain other items
  */
 
-import { BackendDashboard } from "../../widget.mjs";
+import  BackendDashboard  from "../../widget.mjs";
 import DashboardObject from "../object.mjs";
 import { MenuItemHeader } from "./header.mjs";
 import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";

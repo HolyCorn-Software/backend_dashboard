@@ -5,7 +5,7 @@
  */
 
 import bdRpc from "../../lib/rpc.mjs";
-import { BackendDashboard } from "../widget.mjs";
+import BackendDashboard from "../widget.mjs";
 
 
 /**

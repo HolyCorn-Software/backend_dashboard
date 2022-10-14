@@ -122,7 +122,7 @@ export class DashboardScriptsProcessor {
 
         if (!canOverride) {
             this[scripts_symbol].push(final_script_data)
-            console.log(`New script ${name} added to Dashboard Scripts Processor`)
+            console.log(`New script called, ${name.yellow} added to Dashboard Scripts Processor`)
         }
 
         return { id: final_script_data.id }
