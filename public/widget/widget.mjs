@@ -10,6 +10,7 @@ import { loadDashboard } from "./logic/loader.mjs";
 import { SideMenu } from "./side-menu/menu.mjs";
 import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
 import { Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
+import dictionary from "/$/system/static/lang/dictionary.mjs";
 
 
 
@@ -61,6 +62,10 @@ export default class BackendDashboard extends Widget {
                 </div>
             `
         });
+
+        /** @type {string} */ this.title
+        this.htmlProperty('.container >.left-section >.main >.logo >.text', 'title', 'innerHTML')
+        this.title = dictionary.getString({ code: 'platform_name', nullValue: `HCTS` })
 
         /** @type {[HTMLElement]} */ this.topActions
         this.pluralWidgetProperty({

@@ -1,3 +1,1 @@
-Improved logging
-Deprecated the named export BackendDashboard from the frontend
-Improved error handling at the frontend widget
+Improved widget by making title to depend on a dynamic string, instead of a fixed name
