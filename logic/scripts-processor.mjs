@@ -6,7 +6,6 @@
  * 
  */
 
-import { Exception } from '../../../system/errors/backend/exception.js'
 import os from 'node:os'
 import libPath from 'node:path'
 import shortUUID from 'short-uuid'
@@ -122,7 +121,7 @@ export class DashboardScriptsProcessor {
 
         if (!canOverride) {
             this[scripts_symbol].push(final_script_data)
-            console.log(`New script called, ${name.yellow} added to Dashboard Scripts Processor`)
+            console.log(`New script called, ${name.magenta} added to Dashboard Scripts Processor`)
         }
 
         return { id: final_script_data.id }

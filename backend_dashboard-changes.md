@@ -1,1 +1,2 @@
-Improved widget by making title to depend on a dynamic string, instead of a fixed name
+
+Updated imports to take advantage of the globally provided classes for faculties in the latest version of the soul system
