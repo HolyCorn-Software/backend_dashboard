@@ -43,7 +43,7 @@ export class DashboardScriptsProcessor {
      * @param {object} param0 
      * @param {Buffer} param0.script
      * @param {string} param0.name Unique name for the script
-     * @param {boolean} param0.override If true, we'll silently override any existing script with thesame name
+     * @param {boolean} param0.override If true, we'll silently override any existing script with the same name
      * @returns {Promise<import('./types.js').DashboardScriptTrackerInfo>}
      */
     async add({ script, name, override }) {
