@@ -26,14 +26,7 @@ export default async function init() {
         http: http_server
     })
 
-    //Make public files available
-    new StrictFileServer({
-        http: http_server,
-        urlPath: '/static/',
-        refFolder: './public',
-    }, import.meta.url).add(
-        './public/'
-    );
+    
     const processor = new DashboardProcessor({
         hooks:{
             getUserPermissions: async ({userid})=>{
@@ -68,7 +61,5 @@ export default async function init() {
         http: http_server
     })
 
-    console.log(`${faculty.descriptor.label.yellow}`)
-    console.log(`Public files for ${faculty.descriptor.label} are available via the HTTP path ${`${faculty.standard.httpPath}static/`.yellow}`)
-
+    console.log(`${faculty.descriptor.label.yellow} is running!`)
 }

@@ -1,3 +1,3 @@
 .
 
-Updated to the modern style of exporting the init function
+Removed unnecessary static file routing in favour of using faculty-provided automatic static file routing
