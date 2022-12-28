@@ -11,7 +11,7 @@ import { DashboardProcessor } from "../logic/processor.mjs";
 const processor_symbol = Symbol('BackendDashboardInternalMethods.prototype.processor')
 
 /**
- * @typedef {import("../logic/types.js").DashboardScript} DashboardScript
+ * @typedef {import("../logic/types.js").DashboardScriptMethods} DashboardScript
  */
 
 export class BackendDashboardInternalMethods extends FacultyFacultyRemoteMethods {

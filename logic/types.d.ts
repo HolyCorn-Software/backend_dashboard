@@ -15,13 +15,13 @@ import { DashboardScriptSystemAPI } from "../lib/system-api/api.mjs";
 /**
  * This is the structure of a script that will be executed when a dashboard is being constructed
  */
-export type DashboardScript = {
+export type DashboardScriptMethods = {
 
     /** 
      * This method is called when a user is trying to fetch details to draw the dashboard on the frontend.
      * It is an opportunity to decide which components are on the dashboard.
      */
-    onRequest: (Ds_onRequest_args) => Promise<void>
+    onRequest: (args: Ds_onRequest_args) => Promise<void>
 }
 
 export type Ds_onRequest_args = {
@@ -36,7 +36,7 @@ export type Ds_onRequest_args = {
 };
 
 export type DashboardScriptData = {
-    script: DashboardScript,
+    script: DashboardScriptMethods,
     name: string,
     id: string
 }
@@ -60,4 +60,9 @@ export type ProcessorHooks = {
 
     getUserPermissions: ({ userid }: { userid: string }) => Promise<{ [string] }>
 
+}
+
+let _DashboardScript = DashboardScriptMethods
+global {
+    declare type DashboardScriptMethods = _DashboardScript
 }

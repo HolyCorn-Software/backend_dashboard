@@ -24,7 +24,7 @@ export class DashboardScriptsProcessor {
         /** @type {[import('./types.js').DashboardScriptData]} */
         this[scripts_symbol] = []
 
-        /** @type {import('./types.js').DashboardScript} */
+        /** @type {import('./types.js').DashboardScriptMethods} */
         this.callbacks = new CallbackManager(this[scripts_symbol], {
             callbackTimeout: 5000
         });
@@ -72,6 +72,11 @@ export class DashboardScriptsProcessor {
             script_tmp_path = `${os.tmpdir()}${libPath.sep}${shortUUID.generate()}.mjs`
             fs.writeFileSync(script_tmp_path, script)
             scriptData = await import(script_tmp_path)
+            if(!scriptData.default){
+                console.warn(`Adding script for '${name}' created a warning.\nThe script was supposed to export a default object, containing all useful methods`)
+            }else{
+                scriptData = scriptData.default
+            }
 
             //Now checking if the script follows the expected pattern
             let methods = ['onRequest']
