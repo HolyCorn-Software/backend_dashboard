@@ -14,7 +14,7 @@ import { BackendDashboardPublicMethods } from "./remote/public.mjs"
 
 const faculty = FacultyPlatform.get()
 
-export async function init() {
+export default async function init() {
 
 
     //Initialize our HTTP server

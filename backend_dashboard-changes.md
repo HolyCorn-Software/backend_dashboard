@@ -1,3 +1,3 @@
 .
 
-Deprecating named exports in favour of default exports
+Updated to the modern style of exporting the init function
