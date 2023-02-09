@@ -6,7 +6,6 @@
  * This sub-module (types.d.ts) contains type definitions for the logic module
  */
 
-import { FacultyPublicJSONRPC } from "system/comm/rpc/faculty-public-rpc.mjs";
 import { DashboardDirective } from "../lib/directive/dashboard.mjs";
 import { DashboardScriptSystemAPI } from "../lib/system-api/api.mjs";
 

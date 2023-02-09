@@ -6,7 +6,6 @@
  * This faculty provides the special ability to have a dashboard that's built by the interaction of backend components
  */
 
-import { FacultyPublicJSONRPC } from "../../system/comm/rpc/faculty-public-rpc.mjs"
 import { DashboardProcessor } from "./logic/processor.mjs"
 import { BackendDashboardInternalMethods } from "./remote/internal.mjs"
 import { BackendDashboardPublicMethods } from "./remote/public.mjs"
