@@ -8,7 +8,7 @@
  * There's no way from distinguishing actions from groups, except that groups are items that contain other items
  */
 
-import  BackendDashboard  from "../../widget.mjs";
+import BackendDashboard from "../../widget.mjs";
 import DashboardObject from "../object.mjs";
 import { MenuItemHeader } from "./header.mjs";
 import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
@@ -23,7 +23,7 @@ export class MenuItem extends DashboardObject {
      * @param {object} param0 
      * @param {string} param0.label
      * @param {string} param0.icon
-     * @param {[import("../../types.js").FrontendFormat]} param0.items
+     * @param {[import("../../../../lib/types.js").DashboardCompactFormat]} param0.items
      * @param {string} param0.name
      * @param {HTMLElement} viewHTML
      * @param {string} view
@@ -166,7 +166,7 @@ export class MenuItem extends DashboardObject {
 
     /**
      * Gives a object structured representation of the items that exist under this item
-     * @returns {{[key:string]: import("../../types.js").FrontendAction|import("../../types.js").FrontendGroup}}
+     * @returns {{[key:string]: import("../../../../lib/types.js").CompactFormatAction & import("../../../../lib/types.js").CompactFormatGroup}}
      */
     get items() {
         let structure = {}
@@ -185,7 +185,7 @@ export class MenuItem extends DashboardObject {
 
     /**
      * Setting an object-like representation here will automatically alter the items that are found under this item in order to follow the structure
-     * @param {{[key:string]: import("../../types.js").FrontendAction|import("../../types.js").FrontendGroup}} structure
+     * @param {{[key:string]: import("../../../../lib/types.js").CompactFormatAction|import("../../../../lib/types.js").CompactFormatGroup}} structure
      */
     set items(structure) {
         for (let name in structure) {
@@ -278,7 +278,7 @@ export class MenuItem extends DashboardObject {
         this.viewHTML = item.viewHTML
         this.topActions = item.topActions
         this.dispatchEvent(new CustomEvent('select'))
-        if(this.header.isGroup){
+        if (this.header.isGroup) {
             this.html.classList.add('isShowing')
         }
     }

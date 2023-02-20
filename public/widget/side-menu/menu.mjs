@@ -5,7 +5,6 @@
  * This widget (menu) is part of the backend-dashboard widget and controls the multi-layer menu on the left
  */
 
-import { convert } from "./converter.mjs";
 import { MenuItem } from "./item/item.mjs";
 import DashboardObject from "./object.mjs";
 import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
@@ -71,22 +70,11 @@ export class SideMenu extends DashboardObject {
 
     }
 
-
-    /**
-     * This is used to apply data coming from the backend
-     * @param {[import("../types.js").BackendAction]} actions 
-     * @param {[import("../types.js").BackendGroup]} groups 
-     */
-    setBackendStructureData(actions, groups) {
-        let frontend_structure = convert(actions, groups)
-        this.structureData = frontend_structure
-    }
-
     /**
      * Setting this will alter how the dashboard is structured
-     * @param {import("../types.js").FrontendFormat} data
+     * @param {import("../../../lib/types.js").DashboardCompactFormat} data
      */
-    set structureData(data) {
+    set structure(data) {
         let caller = hc.getCaller();
 
         for (let name in data) {
@@ -94,7 +82,7 @@ export class SideMenu extends DashboardObject {
             //If there's an icon, compute the final location of the icon relative to the caller
 
             //Do same for the children and children's children
-            /**@param {import("../types.js").FrontendAction|import("../types.js").FrontendGroup} item */
+            /**@param {import("../../../lib/types.js").CompactFormatAction|import("../../../lib/types.js").CompactFormatGroup} item */
             const exec_once = (item) => {
                 item.icon &&= new URL(item.icon, caller).href
                 for (let child in item.items) {
@@ -136,7 +124,7 @@ export class SideMenu extends DashboardObject {
      */
     async directSelect(name) {
         const item = await this.findItem(name)
-        if(!item){
+        if (!item) {
             throw new Error(`Cannot select ${name} on the dashboard, because it could not be found.`)
         }
         item.header.dispatchEvent(new CustomEvent('select'))
@@ -144,7 +132,7 @@ export class SideMenu extends DashboardObject {
 
     /**
      * This directly adds a group to the dashboard. 
-     * @param {import("../types.js").FrontendGroup & {supergroup: string}} groupdata 
+     * @param {import("../../../lib/types.js").CompactFormatGroup & {supergroup: string}} groupdata 
      * @returns {Promise<MenuItem>}
      */
     async addGroup(groupdata) {
@@ -160,7 +148,7 @@ export class SideMenu extends DashboardObject {
     /**
      * This adds an action to the menu. You can specify the name of the group the action belongs to.
      * If the action specified doesn't exist, it is automatically created.
-     * @param {import("../types.js").FrontendAction & {group: string}} itemdata 
+     * @param {import("../../../lib/types.js").CompactFormatAction & {group: string}} itemdata 
      */
     async addAction(itemdata) {
 

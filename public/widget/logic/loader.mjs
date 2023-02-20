@@ -21,5 +21,5 @@ export async function loadDashboard({name, params}, widget){
         name, params
     });
 
-    widget.menu.setBackendStructureData(directive.actions, directive.groups)
+    widget.menu.structure = directive;
 }

@@ -57,7 +57,7 @@ export type DashboardScriptTrackerInfo = {
  */
 export type ProcessorHooks = {
 
-    getUserPermissions: ({ userid }: { userid: string }) => Promise<{ [string] }>
+    getUserPermissions: ({ userid }: { userid: string }) => Promise<string[]>
 
 }
 

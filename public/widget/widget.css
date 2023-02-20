@@ -10,7 +10,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    /* border:2px solid blue; */
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: content-box;

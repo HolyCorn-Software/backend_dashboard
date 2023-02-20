@@ -27,7 +27,7 @@ export class BackendDashboardPublicMethods extends FacultyPublicMethods {
      * @param {object} param0 
      * @param {string} param0.name
      * @param {object} param0.params
-     * @returns {Promise<import("../lib/directive/types.js").RawDashboardDirective>}
+     * @returns {Promise<import("../lib/types.js").DashboardCompactFormat>}
      */
     async getDashboard({ name, params } = {}) {
 

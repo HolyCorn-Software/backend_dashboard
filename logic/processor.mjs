@@ -10,9 +10,12 @@ import { DashboardDirective } from '../lib/directive/dashboard.mjs'
 import { UserDirective } from '../lib/directive/user.mjs'
 import { DashboardScriptSystemAPI } from '../lib/system-api/api.mjs'
 import { DashboardScriptsProcessor } from './scripts-processor.mjs'
+import dashboardLogicUtils from './utils.mjs'
 
 
 const dashboards_symbol = Symbol(`DashboardProcessor.prototype.dashboards`)
+
+const faculty = FacultyPlatform.get();
 
 
 export class DashboardProcessor {
@@ -41,17 +44,32 @@ export class DashboardProcessor {
      * @param {string} param0.name
      * @param {string} param0.userid
      * @param {object} param0.params Additional parameters
-     * @returns {Promise<import('../lib/directive/types.js').RawDashboardDirective>}
+     * @returns {Promise<import('../lib/types.js').DashboardCompactFormat>}
      */
     async getDashboard({ name, userid, params }) {
-        const dashboard_directive = new DashboardDirective({ name })
 
+        const userPermissions = await this.hooks.getUserPermissions({ userid })
         //Get permissions for the user requesting a view of the dashboard.
         //The permissions information is necessary in the decision making process of scripts
         const user_directive = new UserDirective({
             userid,
-            permissions: await this.hooks.getUserPermissions({ userid })
-        })
+            permissions: userPermissions
+        });
+
+
+        //Here, let's process the static elements of the dashboard (elements of the dashboard declared in faculty descriptors)
+
+        //First things first, let's get the faculty descriptors that have static elements in this dashboard
+        //We should get it, and then convert to a compact format
+        let dashboardDesc = dashboardLogicUtils.convertToCompact((await faculty.base.channel.remote.faculties()).filter(x => x.backend_dashboard?.[name]).map(x => x.backend_dashboard[name]).flat(1))
+
+        //Now, filter the ones that the user should have access to
+
+        const finalDesc = await dashboardLogicUtils.removeByPermission(dashboardDesc, userPermissions)
+        const finalDescExpanded = dashboardLogicUtils.convertToExpanded(finalDesc)
+
+
+        const dashboard_directive = new DashboardDirective({ name, actions: finalDescExpanded.actions, groups: finalDescExpanded.groups })
 
         const scripts_system_api = new DashboardScriptSystemAPI()
 
@@ -69,9 +87,11 @@ export class DashboardProcessor {
             console.warn(`Errors encounterd when calling the onRequest() method\n`, ...result.errors)
         }
 
+
+
         //After the call, every script has modified the final outcome of the dashboard
         //So let's let the client know
-        return dashboard_directive.raw;
+        return dashboardLogicUtils.convertToCompact([...dashboard_directive.raw.actions, ...dashboard_directive.raw.groups]);
     }
 
 
