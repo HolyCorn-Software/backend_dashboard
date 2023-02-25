@@ -5,7 +5,6 @@
  */
 
 import muser_common from "muser_common";
-import { FacultyPublicMethods } from "../../../system/comm/rpc/faculty-public-methods.mjs";
 import { DashboardProcessor } from "../logic/processor.mjs";
 
 

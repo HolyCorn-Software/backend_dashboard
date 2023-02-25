@@ -5,7 +5,6 @@
  * 
  */
 
-import { FacultyFacultyRemoteMethods } from "../../../system/comm/rpc/faculty-faculty-rpc.mjs";
 import { DashboardProcessor } from "../logic/processor.mjs";
 
 const processor_symbol = Symbol('BackendDashboardInternalMethods.prototype.processor')
