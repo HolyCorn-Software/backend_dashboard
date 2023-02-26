@@ -16,16 +16,6 @@ const faculty = FacultyPlatform.get()
 export default async function init() {
 
 
-    //Initialize our HTTP server
-    const http_server = await HTTPServer.new()
-
-    await faculty.base.shortcutMethods.http.claim({
-        remotePath: faculty.standard.httpPath,
-        localPath: '/',
-        http: http_server
-    })
-
-    
     const processor = new DashboardProcessor({
         hooks:{
             getUserPermissions: async ({userid})=>{
