@@ -1,3 +1,3 @@
 .
 
-Removed unnecessary imports to take advantage of new platform globals
+Switched to platform-managed public rpc methods

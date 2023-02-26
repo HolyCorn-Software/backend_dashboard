@@ -43,22 +43,5 @@ export default async function init() {
         processor
     })
 
-    await http_server.websocketServer.route({
-        path:'/',
-        callback: (msg, client)=>{
-            new FacultyPublicJSONRPC(client)
-        }
-    });
-
-    await faculty.base.shortcutMethods.http.websocket.claim({
-        base:{
-            point: faculty.standard.publicRPCPoint
-        },
-        local:{
-            path: '/'
-        },
-        http: http_server
-    })
-
     console.log(`${faculty.descriptor.label.yellow} is running!`)
 }
