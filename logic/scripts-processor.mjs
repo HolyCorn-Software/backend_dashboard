@@ -21,7 +21,7 @@ export class DashboardScriptsProcessor {
 
     constructor() {
 
-        /** @type {[import('./types.js').DashboardScriptData]} */
+        /** @type {import('./types.js').DashboardScriptData[]} */
         this[scripts_symbol] = []
 
         /** @type {import('./types.js').DashboardScriptMethods} */

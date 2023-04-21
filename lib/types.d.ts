@@ -4,8 +4,23 @@
  * This module (types) contains type definition for the backend-dashboard widget on the frontend
  */
 
+import { BackendDashboardInternalMethods } from "../remote/internal.mjs"
+import { BackendDashboardPublicMethods } from "../remote/public.mjs"
 
 
+
+global {
+    namespace faculty {
+        interface faculties {
+            backend_dashboard: {
+                remote: {
+                    internal : BackendDashboardInternalMethods
+                    public: BackendDashboardPublicMethods
+                }
+            }
+        }
+    }
+}
 
 
 

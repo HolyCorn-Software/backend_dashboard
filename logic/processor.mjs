@@ -61,7 +61,7 @@ export class DashboardProcessor {
 
         //First things first, let's get the faculty descriptors that have static elements in this dashboard
         //We should get it, and then convert to a compact format
-        let dashboardDesc = dashboardLogicUtils.convertToCompact((await faculty.base.channel.remote.faculties()).filter(x => x.backend_dashboard?.[name]).map(x => x.backend_dashboard[name]).flat(1))
+        let dashboardDesc = dashboardLogicUtils.convertToCompact((await faculty.base.channel.remote.faculties()).filter(x => x.meta?.backend_dashboard?.[name]).map(x => x.meta.backend_dashboard[name]).flat(1))
 
         //Now, filter the ones that the user should have access to
 

@@ -26,9 +26,9 @@ export class SideMenu extends DashboardObject {
             `
         });
 
-        /** @type {[MenuItem]} */ this.itemWidgets
+        /** @type {MenuItem[]} */ this.itemWidgets
 
-        /** @type {[HTMLElement]} */ this.topActions
+        /** @type {HTMLElement[]} */ this.topActions
 
         this.pluralWidgetProperty({
             selector: '.hc-cayofedpeople-backend-dashboard-menu-item',
@@ -40,7 +40,13 @@ export class SideMenu extends DashboardObject {
                 set: (item) => {
 
                     //When any of the items, are selected, set the current view to the current view of the item that was selected
-                    item.addEventListener('select', () => {
+                    item.addEventListener('select', async () => {
+                        try {
+                            await item.header.viewLoadPromise
+                        } catch { }
+                        if (!item.viewHTML) {
+                            return;
+                        }
                         this.currentView = item.viewHTML
                         this.topActions = item.topActions
                     })

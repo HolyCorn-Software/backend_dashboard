@@ -6,7 +6,7 @@
  */
 
 
-.hc-cayofedpeople-backend-dashboard {
+ .hc-cayofedpeople-backend-dashboard {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -27,6 +27,7 @@
 .hc-cayofedpeople-backend-dashboard::-webkit-scrollbar-thumb {
     border-radius: 15px;
     background-color: #3c4c6b;
+    border: 4px solid #F3F7F9;
 }
 
 .hc-cayofedpeople-backend-dashboard::-webkit-scrollbar-thumb::before {

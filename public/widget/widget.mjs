@@ -67,7 +67,7 @@ export default class BackendDashboard extends Widget {
         this.htmlProperty('.container >.left-section >.main >.logo >.text', 'title', 'innerHTML')
         this.title = dictionary.getString({ code: 'platform_name', nullValue: `HCTS` })
 
-        /** @type {[HTMLElement]} */ this.topActions
+        /** @type {HTMLElement[]} */ this.topActions
         this.pluralWidgetProperty({
             selector: '*',
             immediate: true,
@@ -158,16 +158,3 @@ export default class BackendDashboard extends Widget {
         }
     }
 }
-
-/**
- * @deprecated
- * It is deprecated to import {BackendDashboard} from '../bla/bla/bla'. Rather import BackendDashboard from '../somewhere/ 
- */
-class Deprecated extends BackendDashboard {
-    constructor() {
-        console.warn(`It is deprecated to import {BackendDashboard} from '../bla/bla/bla'. Rather import BackendDashboard from '../somewhere/ `)
-        super(...arguments)
-    }
-}
-
-export { Deprecated as BackendDashboard }

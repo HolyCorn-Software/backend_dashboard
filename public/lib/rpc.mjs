@@ -5,7 +5,7 @@
  */
 
 
-import hcRpc from '/$/system/static/comm/rpc/aggregate-rpc.js'
+import hcRpc from '/$/system/static/comm/rpc/aggregate-rpc.mjs'
 
 /**
  * @type {{

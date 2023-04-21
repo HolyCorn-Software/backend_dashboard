@@ -23,11 +23,11 @@ export class MenuItem extends DashboardObject {
      * @param {object} param0 
      * @param {string} param0.label
      * @param {string} param0.icon
-     * @param {[import("../../../../lib/types.js").DashboardCompactFormat]} param0.items
+     * @param {import("../../../../lib/types.js").DashboardCompactFormat[]} param0.items
      * @param {string} param0.name
      * @param {HTMLElement} viewHTML
      * @param {string} view
-     * @param {[HTMLElement]|[HTMLElement]} topActions
+     * @param {HTMLElement]|[HTMLElement[]} topActions
      */
     constructor({ label, icon, items, name, view, viewHTML, topActions } = {}) {
         super();
@@ -74,7 +74,7 @@ export class MenuItem extends DashboardObject {
         this.header = new MenuItemHeader()
 
         /** @type {HTMLElement} */ this.viewHTML
-        /** @type {[HTMLElement]} */ this.topActions
+        /** @type {HTMLElement[]} */ this.topActions
 
 
         /** @type {string} */ this.name
@@ -200,7 +200,7 @@ export class MenuItem extends DashboardObject {
     }
 
     /**
-     * @param {[string]|[HTMLElement]} actions
+     * @param {string]|[HTMLElement[]} actions
      */
     set topActions(actions) {
         //Resolve the strings, by importing them

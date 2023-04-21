@@ -43,7 +43,7 @@ export class BackendDashboardPublicMethods extends FacultyPublicMethods {
 /**
  * This is used to get the user that called a public method.
  * You call this method like this `getUser(...arguments)` Or better still getUser(arguments[0])
- * @returns {Promise<import("faculty/modernuser/profile/types.js").UserProfileData>}
+ * @returns {Promise<modernuser.profile.UserProfileData>}
  */
 async function getUser() {
     return await muser_common.getUser(arguments[0])
