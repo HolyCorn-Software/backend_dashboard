@@ -1,5 +1,3 @@
 .
 
-Improved typing
-
-Updated standards of auto-dashboard options from faculty descriptors
+Improved typing, by adding backend_dashboard to the typed interface of faculties

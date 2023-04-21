@@ -8,6 +8,8 @@
 
 import { DashboardDirective } from "../lib/directive/dashboard.mjs";
 import { DashboardScriptSystemAPI } from "../lib/system-api/api.mjs";
+import { BackendDashboardInternalMethods } from "../remote/internal.mjs";
+import { BackendDashboardPublicMethods } from "../remote/public.mjs";
 
 
 
@@ -64,4 +66,14 @@ export type ProcessorHooks = {
 let _DashboardScript = DashboardScriptMethods
 global {
     declare type DashboardScriptMethods = _DashboardScript
+    namespace faculty{
+        interface faculties{
+            backend_dashboard:{
+                remote: {
+                    internal: BackendDashboardInternalMethods
+                    public: BackendDashboardPublicMethods
+                }
+            }
+        }
+    }
 }
