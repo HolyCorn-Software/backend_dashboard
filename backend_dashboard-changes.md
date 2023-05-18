@@ -1,3 +1,3 @@
 .
 
-Improved typing, by adding backend_dashboard to the typed interface of faculties
+Improved cross-browser compatibility of the frontend
