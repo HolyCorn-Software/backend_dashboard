@@ -17,7 +17,7 @@ export default class DashboardObject extends Widget {
 
         super();
 
-        hc.importModuleCSS(hc.getCaller(1));
+        hc.importModuleCSS(hc.getCaller(2));
 
         /** @type {MenuItem[]} Objects that extend this class must implement this property in their own way*/ this.itemWidgets
 
