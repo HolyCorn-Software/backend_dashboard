@@ -6,7 +6,7 @@
  */
 
 
- .hc-cayofedpeople-backend-dashboard {
+.hc-cayofedpeople-backend-dashboard {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
     box-sizing: content-box;
     height: 100vh;
     position: relative;
-    --dashboard-content-available-height: calc(100vh - 4.5em);
+    --dashboard-content-available-height: calc(100vh - var(--dashboard-nav-height, 2.5em));
 }
 
 
@@ -54,8 +54,8 @@
 
     font-family: k2dThin;
 
-    background-color:#efeef2;
-    color:rgb(19, 17, 2);
+    background-color: #efeef2;
+    color: rgb(19, 17, 2);
 }
 
 .hc-cayofedpeople-backend-dashboard>.container>.left-section>.main {
@@ -73,7 +73,7 @@
     position: sticky;
     top: -5px;
     background-color: inherit;
-    z-index:1;
+    z-index: 1;
 }
 
 /** The line dividing the top section of the left (where the logo is), from the rest */
@@ -91,15 +91,15 @@
 
 .hc-cayofedpeople-backend-dashboard>.container>.left-section>.main>.logo>img {
     max-width: 3em;
-    max-height:3em;
+    max-height: 3em;
 }
 
 .hc-cayofedpeople-backend-dashboard>.container>.left-section>.main>.logo>.text {
     font-size: 1.25em;
     font-family: k2dThin;
 
-    transition:0.5s 0.25s;
-    color:black;
+    transition: 0.5s 0.25s;
+    color: black;
 }
 
 .hc-cayofedpeople-backend-dashboard>.container>.left-section>.main>.side-menu {
@@ -155,7 +155,7 @@
 
     position: sticky;
     top: -5px;
-    z-index: 1;
+    z-index: 3;
     background-color: white;
 }
 
@@ -165,7 +165,8 @@
 
 .hc-cayofedpeople-backend-dashboard>.container>.right-section>.bottom-right {
     padding-left: clamp(0px, 2vw, 2em);
-    position: relative;
+    position: sticky;
+    top: 2.5em;
     display: flex;
     padding-top: 1em;
 }
@@ -180,6 +181,7 @@
 .hc-cayofedpeople-backend-dashboard.menu-collapsed>.container>.left-section>.main>.logo:after {
     margin-top: 100%;
 }
-.hc-cayofedpeople-backend-dashboard.menu-collapsed>.container>.left-section>.main>.logo >.text{
-    opacity:0;
+
+.hc-cayofedpeople-backend-dashboard.menu-collapsed>.container>.left-section>.main>.logo>.text {
+    opacity: 0;
 }

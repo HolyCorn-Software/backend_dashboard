@@ -63,6 +63,17 @@ export default class BackendDashboard extends Widget {
             `
         });
 
+        hc.watchToCSS(
+            {
+                source: this.html.$('.container >.right-section >.top-right'),
+                target: this.html,
+                apply: '--dashboard-nav-height',
+                watch: {
+                    dimension: 'height'
+                }
+            }
+        )
+
         /** @type {string} */ this.title
         this.htmlProperty('.container >.left-section >.main >.logo >.text', 'title', 'innerHTML')
         this.title = dictionary.getString({ code: 'platform_name', nullValue: `HCTS` })
