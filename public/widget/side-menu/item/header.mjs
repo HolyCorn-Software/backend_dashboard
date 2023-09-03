@@ -113,7 +113,7 @@ export class MenuItemHeader extends Widget {
         return this[view_symbol]
     }
     /**
-     * @returns {import("/$/system/static/html-hc/lib/widget/widget.mjs").ExtendedHTML}
+     * @returns {htmlhc.lib.widget.ExtendedHTML}
      */
     get viewHTML() {
         return this[view_html_symbol]

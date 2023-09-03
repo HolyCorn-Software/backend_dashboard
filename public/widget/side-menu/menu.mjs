@@ -107,7 +107,7 @@ export class SideMenu extends DashboardObject {
     }
 
     /**
-     * @param {import("/$/system/static/html-hc/lib/widget/widget.mjs").ExtendedHTML}
+     * @param {htmlhc.lib.widget.ExtendedHTML}
      */
     set currentView(widget) {
 
