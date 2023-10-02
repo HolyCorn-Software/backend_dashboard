@@ -115,11 +115,11 @@ function convertToExpanded(input) {
         for (let name in instance) {
 
             if (instance[name].view || instance[name].group) { //Then it's an action
-                actions.push({ ...instance[name], name, group: groupName || undefined })
+                actions.push({ name, ...instance[name], group: groupName || instance[name].group || undefined })
             } else {
                 //Then it's a group
                 const { items, ...data } = instance[name]
-                groups.push({ ...data, supergroup: groupName || undefined })
+                groups.push({ ...data, supergroup: groupName || instance[name].supergroup || undefined })
                 const conversions = convert(items, name)
                 groups.push(...conversions.groups)
                 actions.push(...conversions.actions);

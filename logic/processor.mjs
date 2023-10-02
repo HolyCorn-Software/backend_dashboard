@@ -9,6 +9,7 @@
 import { DashboardDirective } from '../lib/directive/dashboard.mjs'
 import { UserDirective } from '../lib/directive/user.mjs'
 import { DashboardScriptSystemAPI } from '../lib/system-api/api.mjs'
+import AutoDashboard from './auto-dashboard.mjs'
 import { DashboardScriptsProcessor } from './scripts-processor.mjs'
 import dashboardLogicUtils from './utils.mjs'
 
@@ -35,6 +36,8 @@ export class DashboardProcessor {
 
         /** @type {import('./types.js').ProcessorHooks} */
         this.hooks = hooks;
+
+        this.autoDashboard = new AutoDashboard()
     }
 
     /**
@@ -88,10 +91,12 @@ export class DashboardProcessor {
         }
 
 
+        // Now, get the static dashboard entries from auto-dashboard
+        const autoEntries = this.autoDashboard.getEntries(name)
 
         //After the call, every script has modified the final outcome of the dashboard
         //So let's let the client know
-        return dashboardLogicUtils.convertToCompact([...dashboard_directive.raw.actions, ...dashboard_directive.raw.groups]);
+        return dashboardLogicUtils.convertToCompact([...autoEntries.actions, ...autoEntries.groups, ...dashboard_directive.raw.actions, ...dashboard_directive.raw.groups]);
     }
 
 

@@ -17,8 +17,8 @@ export default async function init() {
 
 
     const processor = new DashboardProcessor({
-        hooks:{
-            getUserPermissions: async ({userid})=>{
+        hooks: {
+            getUserPermissions: async ({ userid }) => {
                 return [] //Nothing for now
             }
         }
@@ -28,7 +28,7 @@ export default async function init() {
     faculty.remote.internal = new BackendDashboardInternalMethods({
         processor
     })
-    
+
     faculty.remote.public = new BackendDashboardPublicMethods({
         processor
     })

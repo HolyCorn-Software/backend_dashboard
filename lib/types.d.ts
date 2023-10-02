@@ -60,5 +60,5 @@ export type CompactFormatGroup = Omit<DashboardDirectiveGroup & {
 
 
 export type DashboardCompactFormat = {
-    [key: string]: CompactFormatAction & CompactFormatGroup
+    [name: string]: CompactFormatAction & CompactFormatGroup
 }
