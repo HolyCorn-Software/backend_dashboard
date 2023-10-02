@@ -15,11 +15,13 @@ import BackendDashboard from "../widget.mjs";
  * @param {object} param0.params
  * @param {BackendDashboard} widget 
  */
-export async function loadDashboard({name, params}, widget){
-    
+export async function loadDashboard({ name, params }, widget) {
+
     let directive = await bdRpc.backend_dashboard.getDashboard({
         name, params
     });
 
     widget.menu.structure = directive;
+    await new Promise(x => setTimeout(x, 250))
+    await widget.loadWhilePromise(Promise.allSettled([widget.menu.itemWidgets.map(x => x.header.viewLoadPromise)]))
 }
