@@ -51,13 +51,13 @@ export default class DashboardObject extends Widget {
      * @param {number} timeout
      * @returns {Promise<MenuItem>}
      */
-    findItem(name, timeout = 5000) {
+    findItem(name, timeout = 15000) {
         return new Promise(async (resolve, reject) => {
 
             if (this.name === name) {
                 return resolve(this);
             }
-            
+
             const iw = [...(this.itemWidgets || [])]
 
             setTimeout(() => reject(new Error(`Timeout searching for ${name}`)), timeout)

@@ -83,28 +83,32 @@ export class MenuItemHeader extends Widget {
     }
 
     set view(view) {
-        this.viewLoadPromise = (async () => {
-            let module = await import(view);
-            if (!(module.default) instanceof Widget) {
-                throw new Error(
-                    `The view (${view}) did not export a default class which extends Widget.\nIn general it something like this is expected\n
-                    import {Widget} from '/$/system/static/html-hc/lib/widget/widget.mjs'
-                    
-                    export default SomeClass extends Widget{
-                        constructor(){
-                            super();
-                            super.html = document.createElement('div')
-                            super.html.innerHTML=\`My sample HTML\`;
-                        }
+        (
+            this.viewLoadPromise = (
+                async () => {
+                    let module = await import(view);
+                    if (!(module.default) instanceof Widget) {
+                        throw new Error(
+                            `The view (${view}) did not export a default class which extends Widget.\nIn general it something like this is expected\n
+                            import {Widget} from '/$/system/static/html-hc/lib/widget/widget.mjs'
+                            
+                            export default SomeClass extends Widget{
+                                constructor(){
+                                    super();
+                                    super.html = document.createElement('div')
+                                    super.html.innerHTML=\`My sample HTML\`;
+                                }
+                            }
+                            `
+                        );
                     }
-                    `
-                );
-            }
 
-            let instance = new module.default(this)
-            this[view_html_symbol] = instance.html;
-            this[view_symbol] = view;
-        })().catch(e=>{
+                    let instance = new module.default(this)
+                    this[view_html_symbol] = instance.html;
+                    this[view_symbol] = view;
+                }
+            )()
+        ).catch(e => {
             console.log(`Could not load view `, view, `\nError: `, e)
             report_error_direct(e)
         })

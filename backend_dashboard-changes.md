@@ -1,3 +1,3 @@
 .
 
-Improved the dashboard load algorithm.
+Improved main widget loading algorithm.

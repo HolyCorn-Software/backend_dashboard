@@ -129,6 +129,9 @@ export class SideMenu extends DashboardObject {
      * @param {string} name 
      */
     async directSelect(name) {
+        await Promise.allSettled(
+            this.itemWidgets.map(x => x.header.viewLoadPromise)
+        )
         const item = await this.findItem(name)
         if (!item) {
             throw new Error(`Cannot select ${name} on the dashboard, because it could not be found.`)
