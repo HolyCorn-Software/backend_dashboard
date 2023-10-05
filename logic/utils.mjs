@@ -16,6 +16,12 @@ import muser_common from "muser_common";
  * @returns {import("../lib/types.js").DashboardCompactFormat}
  */
 function convertToCompact(items) {
+
+
+    // Before any processing, let's remove duplicate items
+    items = cleanItems(items);
+
+
     const actions = items.filter(x => x.group || x.view)
     const groups = items.filter(x => x.supergroup || (!x.group && !x.view))
 
@@ -59,7 +65,6 @@ function convertToCompact(items) {
     const get_max_star_index = () => [...groups, ...actions].map(x => get_star_index(x)).sort().at(-1);
 
 
-
     //First get the top-tier groups (with no supergroups) and super actions (actions having no groups)
     let super_stars = get_items_by_star_index(0);
 
@@ -90,6 +95,20 @@ function convertToCompact(items) {
 }
 
 
+/**
+ * This method removes duplicate entries
+ * @param {(import("../lib/types.js").DashboardDirectiveAction | import("../lib/types.js").DashboardDirectiveGroup)[]} items
+ * @returns 
+ */
+function cleanItems(items) {
+    const cleanedItems = [];
+    for (const item of items) {
+        if (cleanedItems.findIndex(it => it.name == item.name) == -1) {
+            cleanedItems.push(item);
+        }
+    }
+    return cleanedItems;
+}
 
 /**
  * This method converts data that's suitable for the frontend, to one that's usable by the backend

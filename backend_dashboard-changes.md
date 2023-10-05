@@ -1,3 +1,3 @@
 .
 
-Improved main widget loading algorithm.
+Improved stability.

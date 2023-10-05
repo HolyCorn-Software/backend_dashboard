@@ -10,6 +10,7 @@ import DelayedAction from "../../../system/public/html-hc/lib/util/delayed-actio
 import libPath from 'node:path'
 import libFs from 'node:fs'
 import dashboardLogicUtils from "./utils.mjs"
+import nodeUtil from 'node:util'
 
 
 const refresh = Symbol()
@@ -43,8 +44,8 @@ export default class AutoDashboard {
         const values = (this[entries]?.map(x => x[name]))?.map(
             x => dashboardLogicUtils.convertToExpanded(x)
         );
-
-        return values?.reduce((prev, current) => {
+        
+        return (values?.length > 0) ? values?.reduce((prev, current) => {
             prev.actions.push(...current.actions)
             prev.groups.push(...current.groups)
             return {
@@ -52,7 +53,7 @@ export default class AutoDashboard {
                 actions: [...prev?.actions],
                 name
             }
-        }) || {
+        }) : {
             actions: [],
             groups: [],
             name
