@@ -1,3 +1,3 @@
 .
 
-Improved stability.
+Improved performance, by caching dashboard data.
