@@ -101,10 +101,13 @@ function convertToCompact(items) {
  * @returns 
  */
 function cleanItems(items) {
-    const cleanedItems = [];
+    let cleanedItems = [];
     for (const item of items) {
-        if (cleanedItems.findIndex(it => it.name == item.name) == -1) {
-            cleanedItems.push(item);
+        if ((cleanedItems.find(it => it.name == item.name)?.priority || 0) <= (item.priority || 0)) {
+            cleanedItems = [
+                ...cleanedItems.filter(x => x.name !== item.name),
+                item
+            ]
         }
     }
     return cleanedItems;

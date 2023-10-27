@@ -14,7 +14,7 @@ global {
         interface faculties {
             backend_dashboard: {
                 remote: {
-                    internal : BackendDashboardInternalMethods
+                    internal: BackendDashboardInternalMethods
                     public: BackendDashboardPublicMethods
                 }
             }
@@ -41,6 +41,8 @@ export interface DashboardDirectiveItemCommon {
     icon: string
     /** A list of permissions, whereby, having any, qualifies the user to access the item */
     permissions: string[]
+    /** An optional parameter that helps the system decide which declaration to consider over the other, in cases where more than one declaration has the same name */
+    priority: number
 }
 
 export type RawDashboardDirective = {
