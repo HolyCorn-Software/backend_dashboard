@@ -34,7 +34,11 @@ export class BackendDashboardPublicMethods extends FacultyPublicMethods {
         params = arguments[1]?.params;
 
         let user = await getUser(...arguments);
-        return new JSONRPC.CacheObject(await this[processor_symbol].getDashboard({ name, userid: user.id, params }), { expiry: 5 * 60 * 1000 })
+        return new JSONRPC.MetaObject(await this[processor_symbol].getDashboard({ name, userid: user.id, params }), {
+            cache: {
+                expiry: 5 * 60 * 1000
+            }
+        })
     }
 
 }

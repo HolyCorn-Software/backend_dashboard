@@ -1,3 +1,3 @@
 .
 
-Added 'priority' feature, to allow dashboards to be more easily constructed from multiple sources at once.
+Updated caching directives, to comply with new standards of the soul system.
