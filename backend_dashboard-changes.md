@@ -1,3 +1,3 @@
 .
 
-Updated caching directives, to comply with new standards of the soul system.
+Improved the UX of the dashboard widget.

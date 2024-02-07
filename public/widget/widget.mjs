@@ -123,14 +123,11 @@ export default class BackendDashboard extends Widget {
     }
 
     async loadFromServer({ name, params }) {
-        this.loadBlock();
-        try {
+
+        await this.blockWithAction(async () => {
             await loadDashboard({ name, params }, this)
-        } catch (e) {
-            this.loadUnblock();
-            throw e;
-        }
-        this.loadUnblock()
+        })
+
     }
 
     /**
