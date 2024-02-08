@@ -63,12 +63,8 @@ export default class AutoDashboard {
 
     [refresh] = new DelayedAction(async () => {
 
-        console.log(`Refreshing dashboard entries info.`)
-
         try {
             const data = await FacultyPlatform.get().base.channel.remote.frontendManager.fileManager.getURLs('.*backend_dashboard\\.config\\.json')
-
-            console.log(`The files that determine the dashboard `, data)
 
             this[entries] = await Promise.all(
                 data.map(async config => {
