@@ -44,7 +44,7 @@ export default class AutoDashboard {
         const values = (this[entries]?.map(x => x[name]))?.map(
             x => dashboardLogicUtils.convertToExpanded(x)
         );
-        
+
         return (values?.length > 0) ? values?.reduce((prev, current) => {
             prev.actions.push(...current.actions)
             prev.groups.push(...current.groups)
@@ -63,8 +63,12 @@ export default class AutoDashboard {
 
     [refresh] = new DelayedAction(async () => {
 
+        console.log(`Refreshing dashboard entries info.`)
+
         try {
             const data = await FacultyPlatform.get().base.channel.remote.frontendManager.fileManager.getURLs('.*backend_dashboard\\.config\\.json')
+
+            console.log(`The files that determine the dashboard `, data)
 
             this[entries] = await Promise.all(
                 data.map(async config => {

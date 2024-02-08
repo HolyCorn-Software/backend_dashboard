@@ -1,3 +1,3 @@
 .
 
-Improved the UX of the dashboard widget.
+Debugging an issue related to dynamic generation of dashboards.
