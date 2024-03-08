@@ -1,3 +1,3 @@
 .
 
-Disabled debugging.
+Switched to modern standards, for frontend components.

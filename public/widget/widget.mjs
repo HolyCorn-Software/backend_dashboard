@@ -76,7 +76,6 @@ export default class BackendDashboard extends Widget {
 
         /** @type {string} */ this.title
         this.htmlProperty('.container >.left-section >.main >.logo >.text', 'title', 'innerHTML')
-        this.title = dictionary.getString({ code: 'platform_name', nullValue: `HCTS` })
 
         /** @type {HTMLElement[]} */ this.topActions
         this.pluralWidgetProperty({
@@ -125,7 +124,9 @@ export default class BackendDashboard extends Widget {
     async loadFromServer({ name, params }) {
 
         await this.blockWithAction(async () => {
+            this.title = await dictionary.get({ code: 'platform_name', nullValue: `HCTS` })
             await loadDashboard({ name, params }, this)
+
         })
 
     }
