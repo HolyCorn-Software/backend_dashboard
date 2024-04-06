@@ -68,8 +68,14 @@ export default class AutoDashboard {
 
             this[entries] = await Promise.all(
                 data.map(async config => {
+                    const data = await libFs.promises.readFile(config.path)
+
+                    if (data.byteLength < 2) {
+                        return;
+                    }
+
                     /** @type {import("../lib/types.js").DashboardCompactFormat} */
-                    const entry = JSON.parse(await libFs.promises.readFile(config.path))
+                    const entry = JSON.parse(data)
 
                     /**
                      * This method moves through dashboard directive, and parses the relative paths, into absolute paths

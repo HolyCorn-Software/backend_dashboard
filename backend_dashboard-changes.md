@@ -1,3 +1,3 @@
 .
 
-Switched to modern standards, for frontend components.
+Improved stability of auto-dashboard feature.
