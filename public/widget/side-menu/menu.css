@@ -5,8 +5,14 @@ This widget (side-menu) is part of the backend-dashboard and is responsible for 
 */
 
 
-.hc-cayofedpeople-backend-dashboard-menu >.container >.items{
-    display:flex;
-    flex-direction:column;
-    gap:0em;
+.hc-cayofedpeople-backend-dashboard-menu>.container>.items {
+    display: flex;
+    flex-direction: column;
+    gap: 0em;
+    max-height: calc(100vh - 7.5em);
+    overflow: auto;
+}
+
+.hc-cayofedpeople-backend-dashboard-menu>.container>.items::-webkit-scrollbar {
+    color: transparent;
 }

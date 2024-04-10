@@ -80,6 +80,23 @@ export class MenuItem extends DashboardObject {
         /** @type {string} */ this.name
         Widget.__htmlProperty(this, this.html, 'name', 'attribute', undefined, 'name')
 
+        hc.watchToCSS(
+            {
+                signal: this.destroySignal,
+                source: this.html.$(':scope >.container >.content'),
+                watch: {
+                    dimension: 'height'
+                },
+                apply: () => {
+                    let maxHeight = 0;
+                    this.itemWidgets.forEach(item => {
+                        maxHeight += (item.html.getBoundingClientRect().height * 2.5) + 10
+                    });
+                    this.html.style.setProperty('--content-height', `${maxHeight}px`)
+                }
+            }
+        )
+
 
 
         //Now, we are relaying over the 'label', 'view', and 'icon properties to the header widget

@@ -7,7 +7,6 @@
 .hc-cayofedpeople-backend-dashboard-menu-item>.container {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
 }
 
 .hc-cayofedpeople-backend-dashboard-menu-item>.container>.content {
@@ -20,23 +19,86 @@
 
 
 /** The logic of expanding and contracting the content */
-.hc-cayofedpeople-backend-dashboard-menu-item>.container>.content {
-    max-height: 0em;
-    opacity: 0%;
-    transition: 0.25s 0.125s, 0.125s 0.25s padding-bottom;
+
+.hc-cayofedpeople-backend-dashboard-menu-item.hc-widget-ready>.container>.content {
+    animation: 0.5s hc-cayofedpeople-backend-dashboard-menu-expand-2 forwards reverse;
 }
+
+.hc-cayofedpeople-backend-dashboard-menu-item>.container>.content {
+    max-height: 0px;
+    opacity: 0;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+
+}
+
+.hc-cayofedpeople-backend-dashboard-menu-item:not(.hc-widget-ready)>.container>.content {
+    display: none;
+}
+
 
 .hc-cayofedpeople-backend-dashboard-menu-item.isShowing:not(.collapsed)>.container>.content {
-    max-height: 100vh;
-    opacity: 1;
-    transition: 0.5s 0.125s, 0.25s 0.125s padding-bottom;
-    padding-bottom: 1em;
+    animation: 0.5s 0.25s hc-cayofedpeople-backend-dashboard-menu-expand forwards;
+    display: flex;
 }
 
 
+@keyframes hc-cayofedpeople-backend-dashboard-menu-expand {
+    0% {
+        max-height: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        padding-top: 0px;
+        opacity: 0;
+        display: none;
+        max-width: 0px;
+    }
 
-/** The logic of collapsing the menu item. Note that collapsing is different from contracting */
-.hc-cayofedpeople-backend-dashboard-menu-item >.container >.content{
-    opacity:0;
-    transition:0.25s 0.125s;
+    20% {
+        opacity: 0;
+        display: flex;
+        max-width: 0px;
+    }
+
+    99% {
+        max-height: var(--content-height);
+    }
+
+    100% {
+        opacity: 1;
+        padding-bottom: 1em;
+        max-height: unset;
+        display: flex;
+        max-width: 100%;
+        padding-left: 2.5em;
+        padding-top: 0.25em;
+    }
+}
+
+
+@keyframes hc-cayofedpeople-backend-dashboard-menu-expand-2 {
+    0% {
+        max-height: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        opacity: 0;
+        display: none;
+        max-width: 0px;
+    }
+
+    20% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        max-height: var(--content-height);
+        opacity: 1;
+        padding-bottom: 1em;
+        display: flex;
+        max-width: 100%;
+        padding-left: 2.5em;
+        padding-top: 0.25em;
+    }
 }

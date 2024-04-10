@@ -1,3 +1,3 @@
 .
 
-Improved stability of auto-dashboard feature.
+Improved UX of the widget.
